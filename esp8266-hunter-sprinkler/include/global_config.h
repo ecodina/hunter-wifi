@@ -11,7 +11,7 @@
 #define DHCP_NAME  "WateringSystem"
 #define SSID_AP    "WateringSystemAP"   // SSID of the AP created to configure WiFi
 #define PWD_AP     ""                   // Password of the AP created to configure WiFi
-#define TIMEOUT_AP 40                   // (seconds) time during the AP will be visible if credentials
+#define TIMEOUT_AP 10                   // (seconds) time during the AP will be visible if credentials
                                         // were already stored. Each time the ESP8266 boots, it will
                                         // pause during this time.
 

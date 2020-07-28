@@ -6,7 +6,6 @@
 #include <ESP8266WebServer.h>
 #include <global_config.h>  
 
-
 void setupWifi() {
     ESP_WiFiManager wifiManager(DHCP_NAME);
     wifiManager.setMinimumSignalQuality(-1);
