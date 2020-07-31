@@ -4,6 +4,7 @@
 #define HunterRoam_h
 
 #include <vector>
+#include <Arduino.h>
 
 #define START_INTERVAL 900
 #define SHORT_INTERVAL 208

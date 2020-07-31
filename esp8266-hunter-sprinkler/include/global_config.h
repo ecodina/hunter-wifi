@@ -6,13 +6,11 @@
 #define GLOBAL_CONFIG_H
 
 #define SERIAL_SPEED 9600
+#define REM_PIN 16
 
 // WIFi
-#define DHCP_NAME  "WateringSystem"
+#define MDNS_NAME  "hunter"
 #define SSID_AP    "WateringSystemAP"   // SSID of the AP created to configure WiFi
 #define PWD_AP     ""                   // Password of the AP created to configure WiFi
-#define TIMEOUT_AP 10                   // (seconds) time during the AP will be visible if credentials
-                                        // were already stored. Each time the ESP8266 boots, it will
-                                        // pause during this time.
 
 #endif

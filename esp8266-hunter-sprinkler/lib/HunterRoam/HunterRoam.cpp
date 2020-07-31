@@ -19,7 +19,6 @@
  */
 
 #include "HunterRoam.h"
-#include <Arduino.h>
 
 /**
  * Constructor for the object HunterRoam.
