@@ -2,6 +2,9 @@
 
 During 2020's summer I decided it would be interesting to have my Hunter Pro-C watering system connected to the Internet. After some research I found [Scott Shumate 2015's product](https://www.hackster.io/sshumate/hunter-sprinkler-wifi-remote-control-4ea918), but it is no longer on sale. Luckily, [Sebastien](https://github.com/seb821/OpenSprinkler-Firmware-Hunter) published the necessary Arduino code. I have adapted his code to make it easier to control the sprinkler system.
 
+It can control up to 48 zones and 4 programs.
+
+A quite extensive documentation is available inside the [docs](docs) folder.
 
 ## Compatible devices
 
@@ -15,11 +18,11 @@ You will also need a floating power source (e.g. mobile phone charger).
 In total, you will spend ~10€ to give WiFi capabilities to your old Hunter.
 
 ## Try it yourself
-Download this project and upload it to your board. Afterwards, connect the microcontroller to the SmartPort (see how in the `docs` folder).
+Download this project and [upload it to your board](docs/1%20Build%20and%20upload.md). Afterwards, connect the microcontroller to the SmartPort (see how in the [docs](docs/2%20Connection%20to%20the%20SmartPort.md) folder).
 
 The first time you power it, a "*WateringSystemAP*" open WiFi access point will be created. Connect to it and your phone will ask to "sign-in". Click on the notification and follow the steps to connect to your home WiFi. If nothing happens when you connect to the AP, navigate to 192.168.4.1.
 
-When the board is connected to your home router, you will have an easy to use HTTP API (endpoints in the `docs` folder).
+When the board is connected to your home router, you will have an easy to use HTTP API (endpoints in the [docs](docs/3%20API%20reference.md) folder).
 
 ## Easy changes
 
