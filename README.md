@@ -33,9 +33,9 @@ You can change the AP's SSID and password-protect it by changing the values in `
 Feel free to fork this project and improve it. Some things that would be good to have are:
 
  - [ ] Use of MQTT protocol.
- - [ ] API authentication
- - [ ] mDNS (easier to discover your device by using a `.local` domain
- - [ ] Webpage (it only has an API)
+ - [ ] API authentication.
+ - [ ] mDNS (easier to discover your device by using a `.local` domain).
+ - [ ] Webpage (it only has an API).
 
 ## License
 
