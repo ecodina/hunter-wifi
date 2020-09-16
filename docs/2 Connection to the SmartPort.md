@@ -15,6 +15,8 @@ This is the set up I currently have. You can use any mobile phone charger to pow
 
 You will also need to connect the GPIO16 / D0 (if using the default installation) to the REM port.
 
+The following diagram shows how to connect it. You can also [check a real photo of my setup](images/my-setup.jpeg).
+
 ![Connection diagram](images/connection.png)
 
 
