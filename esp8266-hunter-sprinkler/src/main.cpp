@@ -9,6 +9,7 @@
 #include <global_config.h>
 
 AsyncWebServer server = AsyncWebServer(80);
+bool wifiDisconnected = false;
 
 void setup() {
     Serial.begin(SERIAL_SPEED);
@@ -26,4 +27,5 @@ void setup() {
 }
 
 void loop() {
+ // wifiDisconnected = checkWifiConnection(wifiDisconnected);
 }
