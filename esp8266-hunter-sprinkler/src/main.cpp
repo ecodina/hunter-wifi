@@ -27,5 +27,5 @@ void setup() {
 }
 
 void loop() {
- // wifiDisconnected = checkWifiConnection(wifiDisconnected);
+    wifiDisconnected = checkWifiConnection(wifiDisconnected);
 }
