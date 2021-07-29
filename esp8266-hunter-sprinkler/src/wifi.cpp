@@ -20,6 +20,7 @@
 void setupWifi() {
     DNSServer dns;
 
+    WiFi.persistent(true); 
     AsyncWiFiManager wifiManager(&server, &dns);
     //wifiManager.resetSettings();
     
