@@ -26,7 +26,8 @@ WiFiClient wifi;
  */
 void sendResult(String toSend, String webhook) {
     http.begin(wifi, webhook);
-    int result = http.POST(toSend);
+    http.addHeader("Content-Type", "application/json"); 
+    http.POST(toSend);
     http.end();
 }
 
