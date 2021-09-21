@@ -4,6 +4,7 @@
 #include <wifi.h>
 #include <Arduino.h>
 #include <FS.h>
+#include <ESP8266mDNS.h>
 
 #include <web_server.h>
 #include <global_config.h>
@@ -28,4 +29,5 @@ void setup() {
 
 void loop() {
     wifiDisconnected = checkWifiConnection(wifiDisconnected);
+    MDNS.update();
 }
