@@ -7,9 +7,10 @@
 
 #define SERIAL_SPEED 9600
 #define REM_PIN 16
+#include <Arduino.h>
 
 // WIFi
-#define MDNS_NAME  "hunter"
+extern const String device_hostname;
 #define SSID_AP    "WateringSystemAP"   // SSID of the AP created to configure WiFi
 #define PWD_AP     ""                   // Password of the AP created to configure WiFi
 
