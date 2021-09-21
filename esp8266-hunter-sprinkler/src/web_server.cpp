@@ -7,7 +7,9 @@
 #include <FS.h>
 #include <ESPAsyncTCP.h>
 #include <ESPAsyncWebServer.h>
+#include <ESP8266mDNS.h>
 
+#include <global_config.h>
 #include <web_server.h>
 #include <web_server_api.h>
 
@@ -16,10 +18,16 @@
  * Configure the paths and start the server.
  */
 void setupWebServer() {
-
+    if (!MDNS.begin(device_hostname.c_str())) {
+        Serial.println("Error setting up MDNS responder!");
+        while (1) {
+            delay(1000);
+        }
+    }
+    Serial.println("mDNS responder started");
     setupAPIRoutes();
-
     server.begin();
+    MDNS.addService("http", "tcp", 80);
 }
 
 /**

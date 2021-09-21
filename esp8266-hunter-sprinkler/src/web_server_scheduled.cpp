@@ -7,7 +7,6 @@
  */
 
 #include <HunterRoam.h>
-#include <Arduino.h>
 #include <ESP8266HTTPClient.h>
 #include <ESP8266WiFi.h>
 #include <global_config.h>
