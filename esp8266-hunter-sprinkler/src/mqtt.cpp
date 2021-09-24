@@ -54,9 +54,8 @@ void mqttPublishResult(const char *toSend) {
 void callback(char* topic, byte* payload, unsigned int length) {
   String newTopic = topic;
   payload[length] = '\0';
-  String newPayload = String((char *)payload);
   StaticJsonDocument<200> doc;
-  DeserializationError error = deserializeJson(doc, newPayload);
+  DeserializationError error = deserializeJson(doc, String((char *)payload));
   if (error) {
     Serial.print(F("deserializeJson() failed: "));
     Serial.println(error.f_str());
@@ -89,7 +88,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     String program_number = String(i);
     String TopicProgramFull = TopicProgram + program_number + "/command";
     if (newTopic == TopicProgramFull.c_str()) {
-      if (newPayload == "start") {
+      if (action == "start") {
         startProgram( i , "");
       }
     }
