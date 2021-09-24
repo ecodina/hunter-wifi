@@ -1,8 +1,9 @@
 #ifndef WIFI_H
 #define WIFI_H
 
-void setupWifi();
-bool checkWifiConnection(bool firstTimeDisconnected);
+#include <ESP8266WiFi.h>
+
+void setup_wifi();
+void reconnect();
 
 #endif
-

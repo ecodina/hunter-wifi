@@ -1,32 +1,28 @@
-/**
- * First version: July 2020 - Eloi Codina Torras
- */
-#include <wifi.h>
-#include <FS.h>
 #include <ESP8266mDNS.h>
 
+#include <wifi.h>
+#include <mqtt.h>
 #include <web_server.h>
-#include <global_config.h>
 
 AsyncWebServer server = AsyncWebServer(80);
-bool wifiDisconnected = false;
 
 void setup() {
-    Serial.begin(SERIAL_SPEED);
-
-    setupWifi();
-    setupWebServer();
-
-  /*  if (!SPIFFS.begin()) {
-      Serial.println("Error mounting the filesystem.");
-    } else {
-      Serial.println("Filesystem is now ready.");
-    }
-    */
-
+  Serial.begin(SERIAL_SPEED);
+  WiFi.mode(WIFI_STA);
+  setup_wifi();
+  setup_WebServer();
+  client.setServer(MQTT_SERVER, MQTT_PORT);
+  client.setCallback(callback);
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
+  Serial.printf("Ready! Open http://%s.local in your browser\n", HOSTNAME);
 }
 
 void loop() {
-    wifiDisconnected = checkWifiConnection(wifiDisconnected);
-    MDNS.update();
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+  MDNS.update();
+  //timer.run();
 }
