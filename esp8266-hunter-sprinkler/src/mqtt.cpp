@@ -13,18 +13,15 @@ String TopicProgram = "hunter/" + device_hostname + "/program/";
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-
 void mqtt_subscribe_topics() {
   for (int i = 1; i <= 48; i++) {
     String zone_number = String(i);
     String TopicZoneFull = TopicZone + zone_number;
-    String TopicZoneFullCommand = TopicZone + zone_number + "/command";
     client.subscribe(TopicZoneFull.c_str());
-    client.subscribe(TopicZoneFullCommand.c_str());
   };
   for (int i = 1; i <= 4; i++) {
     String program_number = String(i);
-    String TopicProgramFull = TopicProgram + program_number + "/command";
+    String TopicProgramFull = TopicProgram + program_number;
     client.subscribe(TopicProgramFull.c_str());
   };
 }
@@ -50,7 +47,6 @@ void mqttPublishResult(const char *toSend) {
   client.publish(TopicResult.c_str(), toSend);
 }
 
-
 void callback(char* topic, byte* payload, unsigned int length) {
   String newTopic = topic;
   payload[length] = '\0';
@@ -66,27 +62,18 @@ void callback(char* topic, byte* payload, unsigned int length) {
   for (byte i = 1; i <= 48; i++) {
     String zone_number = String(i);
     String TopicZoneFull = TopicZone + zone_number;
-    String TopicZoneFullCommand = TopicZone + zone_number + "/command";
-    if (newTopic == TopicZoneFullCommand.c_str()) {
+    if (newTopic == TopicZoneFull.c_str()) {
       if (action == "start") {
         startZone(i, time, "");
-        client.publish(TopicZoneFull.c_str(), "on");
-        /*
-        here i should start an Async Timer to publish OFF after timer expires
-        timer should be as long as the "time" i defined
-        also the timer must be Async because i cannot block the program for
-        several minutes waiting for the timer. That should be a background task
-        */
       }
     if (action == "stop") {
       stopZone(i, "");
-      client.publish(TopicZoneFull.c_str(), "off");
       }
     }
   };
   for (byte i = 1; i <= 4; i++) {
     String program_number = String(i);
-    String TopicProgramFull = TopicProgram + program_number + "/command";
+    String TopicProgramFull = TopicProgram + program_number;
     if (newTopic == TopicProgramFull.c_str()) {
       if (action == "start") {
         startProgram( i , "");
