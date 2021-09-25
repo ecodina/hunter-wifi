@@ -34,7 +34,7 @@ Feel free to fork this project and improve it. Some things that would be good to
 
  - [ ] Use of MQTT protocol.
  - [ ] API authentication.
- - [ ] mDNS (easier to discover your device by using a `.local` domain).
+ - [x] mDNS (easier to discover your device by using a `.local` domain).
  - [ ] Webpage (it only has an API).
 
 ## License
