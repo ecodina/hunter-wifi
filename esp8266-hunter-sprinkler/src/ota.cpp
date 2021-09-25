@@ -24,6 +24,7 @@ void handleDoUpdate(AsyncWebServerRequest *request, const String& filename, size
     if (!Update.begin(content_len, cmd)) {
       Update.printError(Serial);
     }
+    request->send(200, "text/html", "<head><meta http-equiv='refresh' content='10;URL=/'/></head><body>Upload complete! Please wait while the device reboots</body>");
   }
 
   if (Update.write(data, len) != len) {
@@ -33,10 +34,10 @@ void handleDoUpdate(AsyncWebServerRequest *request, const String& filename, size
   }
 
   if (final) {
-    AsyncWebServerResponse *response = request->beginResponse(302, "text/plain", "Please wait while the device reboots");
+/*    AsyncWebServerResponse *response = request->beginResponse(302, "text/plain", "Please wait while the device reboots");
     response->addHeader("Refresh", "20");  
     response->addHeader("Location", "/");
-    request->send(response);
+    request->send(response);*/
     if (!Update.end(true)){
       Update.printError(Serial);
     } else {
