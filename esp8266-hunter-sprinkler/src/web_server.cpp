@@ -18,7 +18,7 @@
  * Configure the paths and start the server.
  */
 void setupWebServer() {
-    if (!MDNS.begin(MDNS_NAME) {
+    if (!MDNS.begin(MDNS_NAME)) {
         Serial.println("Error setting up MDNS responder!");
         while (1) {
             delay(1000);
