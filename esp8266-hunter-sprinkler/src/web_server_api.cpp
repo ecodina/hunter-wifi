@@ -4,9 +4,8 @@
  * 
  * First version: July 2020 - Eloi Codina Torras
  */
-#include <FS.h>
-
 #include <Schedule.h>
+
 #include <web_server_scheduled.h>
 #include <web_server_api.h>
 

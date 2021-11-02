@@ -5,10 +5,10 @@
  * 
  * First version: July 2020 - Eloi Codina Torras
  */
-
 #include <HunterRoam.h>
 #include <ESP8266HTTPClient.h>
 #include <ESP8266WiFi.h>
+
 #include <global_config.h>
 #include <web_server_scheduled.h>
 #include <mqtt.h>

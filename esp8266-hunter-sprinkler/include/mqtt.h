@@ -10,9 +10,15 @@ extern String TopicStatus;
 extern PubSubClient client;
 extern WiFiClient espClient;
 
-void mqtt_connect();
+extern String device_hostname;
+extern String TopicCheckIn;
+extern String TopicResult;
+extern String TopicZone;
+extern String TopicProgram;
+
+void mqtt_connect(const char *MQTT_USER, const char *MQTT_PASSWORD);
 void mqttPublishResult(const char *toSend);
 void mqtt_subscribe_topics ();
-void callback(char* topic, byte* payload, unsigned int length);
+void mqtt_callback(char* topic, byte* payload, unsigned int length);
 
 #endif
