@@ -2,6 +2,7 @@
 #include <ArduinoJson.h>
 
 #include <mqtt.h>
+#include <wifi.h>
 #include <web_server_scheduled.h>
 
 String device_hostname = HOSTNAME;
@@ -26,7 +27,7 @@ void mqtt_subscribe_topics() {
   };
 }
 
-void mqtt_connect() {
+void mqtt_connect(const char *MQTT_USER, const char *MQTT_PASSWORD) {
   bool boot = true;
   // Attempt to connect
   if (client.connect(HOSTNAME, MQTT_USER, MQTT_PASSWORD, TopicCheckIn.c_str(), 0, 0, "Dead Somewhere")) {
@@ -47,7 +48,7 @@ void mqttPublishResult(const char *toSend) {
   client.publish(TopicResult.c_str(), toSend);
 }
 
-void callback(char* topic, byte* payload, unsigned int length) {
+void mqtt_callback(char* topic, byte* payload, unsigned int length) {
   String newTopic = topic;
   payload[length] = '\0';
   StaticJsonDocument<200> doc;

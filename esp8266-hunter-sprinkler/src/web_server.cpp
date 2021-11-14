@@ -4,7 +4,6 @@
  * 
  * First version: July 2020 - Eloi Codina Torras
  */
-#include <FS.h>
 #include <ESPAsyncTCP.h>
 #include <ESP8266mDNS.h>
 

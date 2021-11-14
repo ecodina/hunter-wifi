@@ -4,12 +4,20 @@
 #define SERIAL_SPEED 9600
 #define REM_PIN 16
 
+#define SSID_AP    "WateringSystemAP"   // SSID of the AP created to configure WiFi
+#define PWD_AP     ""                   // Password of the AP created to configure WiFi
 #define HOSTNAME "X-CORE"
-#define WIFI_SSID "your_wifi_ssid"
-#define WIFI_PASSWORD "your_wifi_password"
-#define MQTT_SERVER "server_ip_add"
-#define MQTT_PORT 1883
-#define MQTT_USER  "mqttuser"
-#define MQTT_PASSWORD  "mqttpassword!"
+
+extern bool shouldSaveConfig;
+void saveConfigCallback ();
+
+class MQTT
+{
+	public:
+		String server;
+        int port;
+        String username;
+        String password;
+};
 
 #endif
