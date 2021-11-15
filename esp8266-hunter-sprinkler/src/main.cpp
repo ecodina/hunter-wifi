@@ -1,3 +1,6 @@
+/**
+ * First version: July 2020 - Eloi Codina Torras
+ */
 #include <ESP8266mDNS.h>
 #include "LittleFS.h"
 #include <ArduinoJson.h>
