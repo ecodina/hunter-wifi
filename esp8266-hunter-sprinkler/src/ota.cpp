@@ -5,10 +5,6 @@
 
 size_t content_len;
 
-void handleRoot(AsyncWebServerRequest *request) {
-  request->redirect("/update");
-}
-
 void handleUpdate(AsyncWebServerRequest *request) {
   String html = "<form method='POST' action='/doUpdate' enctype='multipart/form-data'><input type='file' name='update'><input type='submit' value='Update'></form>";
   request->send(200, "text/html", html);
