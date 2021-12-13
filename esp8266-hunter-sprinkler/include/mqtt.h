@@ -6,8 +6,8 @@
 
 class MQTT
 {
-	public:
-		String server;
+    public:
+        String server;
         int port;
         String username;
         String password;
