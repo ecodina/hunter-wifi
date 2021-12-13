@@ -4,28 +4,39 @@
  * First version: July 2020 - Eloi Codina Torras
  */
 
-#include <wifi.h>
-
-#include <ESP8266WiFi.h>
-#include <ESPAsyncWiFiManager.h>
-#include <ESPAsyncWebServer.h>
-#include <ESPAsyncTCP.h>
-
-#include <Arduino.h>
 #include <DNSServer.h>
 
 #include <global_config.h>  
+#include <wifi.h>
+#include <mqtt.h>
 #include <web_server.h>
 
-void setupWifi() {
+MQTT setup_wifi() { 
     DNSServer dns;
-
+    MQTT MqttSettings;
+    char MQTT_SERVER[40] = {0};
+    char MQTT_PORT[6] = "1883";
+    char MQTT_USER[100] = {0};
+    char MQTT_PASSWORD[100] = {0};
     WiFi.persistent(true); 
+    AsyncWiFiManagerParameter custom_mqtt_server("server", "MQTT server", MQTT_SERVER, 40);
+    AsyncWiFiManagerParameter custom_mqtt_port("port", "MQTT port", MQTT_PORT, 5);
+    AsyncWiFiManagerParameter custom_mqtt_username("username", "MQTT username", MQTT_USER, 100);
+    AsyncWiFiManagerParameter custom_mqtt_password("password", "MQTT password", MQTT_PASSWORD, 100);
     AsyncWiFiManager wifiManager(&server, &dns);
+    wifiManager.setSaveConfigCallback(saveConfigCallback);
+    wifiManager.addParameter(&custom_mqtt_server);
+    wifiManager.addParameter(&custom_mqtt_port);
+    wifiManager.addParameter(&custom_mqtt_username);
+    wifiManager.addParameter(&custom_mqtt_password);
     //wifiManager.resetSettings();
-    
     wifiManager.autoConnect(SSID_AP, PWD_AP);
-
+    MqttSettings.server=custom_mqtt_server.getValue();
+    String port_number=custom_mqtt_port.getValue();
+    MqttSettings.port=port_number.toInt();
+    MqttSettings.username=custom_mqtt_username.getValue();
+    MqttSettings.password=custom_mqtt_password.getValue();
+    return MqttSettings;
 }
 
 /*
@@ -36,6 +47,7 @@ void setupWifi() {
  * 
  * @param nextTimeShouldReboot should be true if the last time WiFi connection was checked, it was disconnected.
  */
+
 bool checkWifiConnection(bool nextTimeShouldReboot) {
     delay(5000);
     if (WiFi.status() != WL_CONNECTED) {

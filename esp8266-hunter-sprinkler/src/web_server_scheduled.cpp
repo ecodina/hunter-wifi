@@ -5,13 +5,13 @@
  * 
  * First version: July 2020 - Eloi Codina Torras
  */
-
 #include <HunterRoam.h>
-#include <Arduino.h>
 #include <ESP8266HTTPClient.h>
 #include <ESP8266WiFi.h>
+
 #include <global_config.h>
 #include <web_server_scheduled.h>
+#include <mqtt.h>
 
 HunterRoam smartPort(REM_PIN);
 HTTPClient http;
@@ -26,9 +26,10 @@ WiFiClient wifi;
  */
 void sendResult(String toSend, String webhook) {
     http.begin(wifi, webhook);
-    http.addHeader("Content-Type", "application/json");
+    http.addHeader("Content-Type", "application/json"); 
     http.POST(toSend);
     http.end();
+    mqttPublishResult(toSend.c_str());
 }
 
 /**

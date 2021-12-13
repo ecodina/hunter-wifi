@@ -1,5 +1,7 @@
 #ifndef WEB_SERVER_SCHEDULED_H
-#define WEB_SERVER_SHCEDULED_H
+#define WEB_SERVER_SCHEDULED_H
+
+#include <ESPAsyncWebServer.h>
 
 void startZone(byte num, byte time, String webhook);
 void startProgram(byte num, String webhook);
