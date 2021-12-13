@@ -7,6 +7,7 @@
 #include <ESPAsyncTCP.h>
 
 #include <global_config.h>
+#include <mqtt.h>
 
 MQTT setup_wifi();
 bool checkWifiConnection(bool nextTimeShouldReboot);

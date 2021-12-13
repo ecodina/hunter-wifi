@@ -11,13 +11,4 @@
 extern bool shouldSaveConfig;
 void saveConfigCallback ();
 
-class MQTT
-{
-	public:
-		String server;
-        int port;
-        String username;
-        String password;
-};
-
 #endif

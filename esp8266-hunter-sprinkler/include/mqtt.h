@@ -4,6 +4,15 @@
 #include <global_config.h>
 #include <PubSubClient.h>
 
+class MQTT
+{
+	public:
+		String server;
+        int port;
+        String username;
+        String password;
+};
+
 extern String TopicCheckIn;
 extern String TopicCommands;
 extern String TopicStatus;
