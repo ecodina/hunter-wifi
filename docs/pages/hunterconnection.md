@@ -15,9 +15,9 @@ This is the set up I currently have. You can use any mobile phone charger to pow
 
 You will also need to connect the GPIO16 / D0 (if using the default installation) to the REM port.
 
-The following diagram shows how to connect it. You can also [check a real photo of my setup](/images/my-setup.jpeg).
+The following diagram shows how to connect it. You can also [check a real photo of my setup](/hunter-wifi/images/my-setup.jpeg).
 
-![Connection diagram](/images/connection.png)
+![Connection diagram](/hunter-wifi/images/connection.png)
 
 
 ## 2. Using the 24 VAC from the SmartPort
@@ -25,3 +25,5 @@ The following diagram shows how to connect it. You can also [check a real photo 
 This should be the best option, as you wouldn't need an external power source.
 
 However, I bought a 24 VAC to 5 VDC converter but, after many tries, I couldn't work out the connections.
+
+Note! Check out [@gashtaan's comment](https://github.com/ecodina/hunter-wifi/issues/12#issuecomment-1082636694).

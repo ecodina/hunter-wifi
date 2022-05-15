@@ -19,8 +19,8 @@
   -- (Read: http://dynalon.github.io/mdwiki/#!quickstart.md#Adding_a_navigation)
   -->
 
-[API reference](pages/api.md)
-[MQTT reference](pages/mqtt.md)
+[HTTP API reference](pages/api.md)
+[MQTT API reference](pages/mqtt.md)
 
 <!-- A more complex navigation example: ------------------------------------ -->
 
