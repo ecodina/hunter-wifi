@@ -19,16 +19,15 @@
   -- (Read: http://dynalon.github.io/mdwiki/#!quickstart.md#Adding_a_navigation)
   -->
 
-[API reference](pages/about.md)
-[MQTT reference](pages/download.md)
+[API reference](pages/api.md)
+[MQTT reference](pages/mqtt.md)
 
 <!-- A more complex navigation example: ------------------------------------ -->
 
 [How-Tos]()
 
-  * # SubMenu Heading 1
-  * [Build and Upload](pages/subitem1.md)
-  * [Connect to the SmartPort](pages/subitem2.md)
+  * [Build and Upload](pages/buildupload.md)
+  * [Connect to the SmartPort](pages/hunterconnection.md)
 
 <!--
   -- Change the Language
@@ -48,6 +47,4 @@
   -- (Read: http://dynalon.github.io/mdwiki/#!quickstart.md#Adding_a_navigation)
   -->
 
-<!--
 [gimmick:themechooser](Choose theme)
--->
