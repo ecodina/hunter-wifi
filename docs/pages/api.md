@@ -1,4 +1,4 @@
-# API Reference
+# HTTP API Reference
 
 This project provides an HTTP API to start and stop programs / zones.
 
@@ -6,7 +6,7 @@ Because of limitations in the chosen libraries, the API can only return whether 
 
 Note that Hunter's 1-wire protocol is write-only. Therefore, if the board returns that it started a program / zone correctly, it only means that there were no errors in the request and the program, but has no way of knowing if the Hunter Sprinkler System has actually done it. This limitation also means that the API cannot have a `status` endpoint.
 
-## The `result` parameter
+## The "result" parameter
 
 If you add a `result` parameter in your request, the board will send a JSON to the webhook you specify containing:
 
