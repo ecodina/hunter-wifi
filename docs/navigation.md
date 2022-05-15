@@ -3,7 +3,7 @@
   -- Do NOT remove the leading `#` character.
   -->
 
-# Your wiki name
+# Hunter WiFi
 
 
 <!--
@@ -22,25 +22,13 @@
 [About](pages/about.md)
 [Download](pages/download.md)
 
-<!-- A more complex navigation example: ----------------------------------------
+<!-- A more complex navigation example: ------------------------------------ -->
 
-[Menu Item 1]()
+[How-Tos]()
 
   * # SubMenu Heading 1
-  * [SubMenu Item 1](pages/subitem1.md)
-  * [SubMenu Item 2](pages/subitem2.md)
-  - - - -
-  * # SubMenu Heading 2
-  * [SubMenu Item 3](pages/subitem3.md)
-  - - - -
-  * # SubMenu Heading 3
-  * [SubMenu Item 3](pages/subitem3.md)
-
-[Menu Item 2](pages/item2.md)
-
-[Menu Item 3](pages/item3.md)
-
----------------------------------------------------------------------------- -->
+  * [Build and Upload](pages/subitem1.md)
+  * [Connect to the SmartPort](pages/subitem2.md)
 
 <!--
   -- Change the Language
