@@ -1,10 +1,17 @@
-# Hunter Roam - WiFi
+# Welcome to Hunter-WiFi's documentation
 
 During 2020's summer I decided it would be interesting to have my Hunter Pro-C watering system connected to the Internet. After some research I found [Scott Shumate 2015's product](https://www.hackster.io/sshumate/hunter-sprinkler-wifi-remote-control-4ea918), but it is no longer on sale. Luckily, [Sebastien](https://github.com/seb821/OpenSprinkler-Firmware-Hunter) published the necessary Arduino code. I have adapted his code to make it easier to control the sprinkler system.
 
 It can control up to 48 zones and 4 programs.
 
-A quite extensive documentation is available on [this webpage](https://ecodina.github.io/hunter-wifi).
+## In this documentation
+
+You can find:
+
+* The HTTP API reference
+* The MQTT API reference
+* How to connect the device to the SmartPort
+* How to build the project
 
 ## Compatible devices
 
@@ -27,33 +34,3 @@ When the board is connected to your home router, you will have an easy to use HT
 ## Easy changes
 
 You can change the AP's SSID and password-protect it by changing the values in `include/global_config.h`. You can also change the GPIO that connects to the REM pin of the Hunter system (by default, GPIO16 / D0).
-
-## What I'd like to see in the future
-
-Feel free to fork this project and improve it. Some things that would be good to have are:
-
- - [x] Use of MQTT protocol.
- - [ ] API authentication.
- - [x] mDNS (easier to discover your device by using a `.local` domain).
- - [ ] Webpage (it only has an API).
- - [x] OTA support
-
-## License
-
-Given that [Sebastien](https://github.com/seb821/OpenSprinkler-Firmware-Hunter) published his code under the GNU GPL v3, this project follows the same license.
-
-    Hunter Roam - WiFi
-    Copyright (C) 2020-2022  Eloi Codina Torras
-    
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.

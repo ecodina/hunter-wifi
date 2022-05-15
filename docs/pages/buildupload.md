@@ -21,3 +21,4 @@ If the above method didn't work or you want to make a few changes to the project
 The `esp8266-hunter-sprinkler` folder is a PlatformIO project. Install Visual Studio Code (or any other IDE compatible with PlatformIO) and open the folder as a project.
 
 After you make the changes, connect the board to your computer and upload it.
+
