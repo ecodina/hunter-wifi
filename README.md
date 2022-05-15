@@ -4,7 +4,7 @@ During 2020's summer I decided it would be interesting to have my Hunter Pro-C w
 
 It can control up to 48 zones and 4 programs.
 
-A quite extensive documentation is available inside the [docs](docs) folder.
+A quite extensive documentation is available on [this webpage](https://ecodina.github.io/hunter-wifi).
 
 ## Compatible devices
 
@@ -43,7 +43,7 @@ Feel free to fork this project and improve it. Some things that would be good to
 Given that [Sebastien](https://github.com/seb821/OpenSprinkler-Firmware-Hunter) published his code under the GNU GPL v3, this project follows the same license.
 
     Hunter Roam - WiFi
-    Copyright (C) 2020  Eloi Codina Torras
+    Copyright (C) 2020-2022  Eloi Codina Torras
     
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

@@ -22,12 +22,12 @@
 [HTTP API reference](pages/api.md)
 [MQTT API reference](pages/mqtt.md)
 
-<!-- A more complex navigation example: ------------------------------------ -->
-
 [How-Tos]()
 
   * [Build and Upload](pages/buildupload.md)
   * [Connect to the SmartPort](pages/hunterconnection.md)
+
+[Go to GitHub](https://github.com/ecodina/hunter-wifi)
 
 <!--
   -- Change the Language
