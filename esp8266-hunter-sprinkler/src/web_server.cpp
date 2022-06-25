@@ -37,20 +37,14 @@ void setup_WebServer()
 void setup_APIRoutes()
 {
     server.on("/api/start/zone", HTTP_GET, startZoneRequest);
-
     server.on("/api/start/program", HTTP_GET, startProgramRequest);
-
     server.on("/api/stop/zone", HTTP_GET, stopZoneRequest);
-
     server.on("/api/start", HTTP_GET, [](AsyncWebServerRequest *request)
               { request->send_P(400, "text/plain", "What should I start?"); });
-
     server.on("/api", HTTP_GET, [](AsyncWebServerRequest *request)
               { request->send_P(403, "text/plain", "This is the API root"); });
-
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
               { request->redirect("/update"); });
-
     server.on("/update", HTTP_GET, [](AsyncWebServerRequest *request)
               { handleUpdate(request); });
     server.on("/control", HTTP_GET, [](AsyncWebServerRequest *request)
