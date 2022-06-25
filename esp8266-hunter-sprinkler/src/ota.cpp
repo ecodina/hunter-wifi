@@ -10,6 +10,11 @@ void handleUpdate(AsyncWebServerRequest *request) {
   request->send(200, "text/html", html);
 }
 
+void handleWebInterface(AsyncWebServerRequest *request) {
+  String html = "<p>Nifty Web Interface will be finished Tomorrow</p>";
+  request->send(200, "text/html", html);
+}
+
 void handleDoUpdate(AsyncWebServerRequest *request, const String& filename, size_t index, uint8_t *data, size_t len, bool final) {
   if (!index){
     Serial.println("Update");

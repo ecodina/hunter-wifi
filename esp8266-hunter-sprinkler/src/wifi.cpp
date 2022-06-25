@@ -18,13 +18,16 @@ MQTT setup_wifi() {
     char MQTT_PORT[6] = "1883";
     char MQTT_USER[100] = {0};
     char MQTT_PASSWORD[100] = {0};
+    bool MQTT_ENABLE = true;
     WiFi.persistent(true); 
+    AsyncWiFiManagerParameter custom_mqtt_enable("enable","Enable MQTT (1/0)",0,1);
     AsyncWiFiManagerParameter custom_mqtt_server("server", "MQTT server", MQTT_SERVER, 40);
     AsyncWiFiManagerParameter custom_mqtt_port("port", "MQTT port", MQTT_PORT, 5);
     AsyncWiFiManagerParameter custom_mqtt_username("username", "MQTT username", MQTT_USER, 100);
     AsyncWiFiManagerParameter custom_mqtt_password("password", "MQTT password", MQTT_PASSWORD, 100);
     AsyncWiFiManager wifiManager(&server, &dns);
     wifiManager.setSaveConfigCallback(saveConfigCallback);
+    wifiManager.addParameter(&custom_mqtt_enable);
     wifiManager.addParameter(&custom_mqtt_server);
     wifiManager.addParameter(&custom_mqtt_port);
     wifiManager.addParameter(&custom_mqtt_username);
@@ -36,6 +39,8 @@ MQTT setup_wifi() {
     MqttSettings.port=port_number.toInt();
     MqttSettings.username=custom_mqtt_username.getValue();
     MqttSettings.password=custom_mqtt_password.getValue();
+    String en = custom_mqtt_enable.getValue();
+    MqttSettings.enable=(bool)en.toInt();
     return MqttSettings;
 }
 

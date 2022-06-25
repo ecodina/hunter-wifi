@@ -11,6 +11,7 @@ class MQTT
         int port;
         String username;
         String password;
+        bool enable;
 };
 
 extern String TopicCheckIn;

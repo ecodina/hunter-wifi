@@ -40,6 +40,7 @@ void setup() {
           MqttSettings.port = doc["mqtt_port"];
           MqttSettings.username = doc["mqtt_username"].as<String>();
           MqttSettings.password = doc["mqtt_password"].as<String>();
+          MqttSettings.enable = doc["mqtt_enable"].as<bool>();
         }
       }
     }
@@ -61,6 +62,7 @@ void setup() {
      doc["mqtt_port"] = MqttSettings.port;
      doc["mqtt_username"] = MqttSettings.username;
      doc["mqtt_password"] = MqttSettings.password;
+     doc["mqtt_enable"] = MqttSettings.enable;
      File configFile = LittleFS.open("/config.json", "w");
      if (!configFile) {
        Serial.println("failed to open config file for writing");
@@ -70,7 +72,7 @@ void setup() {
      configFile.close();
      //end save
    }
-   if (enableMQTT) {
+   if (MqttSettings.enable) {
      client.setServer(MqttSettings.server.c_str(), MqttSettings.port);
      client.setCallback(mqtt_callback);
    }
@@ -81,7 +83,7 @@ void setup() {
 }
 
 void loop() {
-  if (enableMQTT) {
+  if (MqttSettings.enable) {
     if (!client.connected()) {
       int retries = 0;
       while (!client.connected()) {

@@ -49,7 +49,7 @@ void setup_APIRoutes() {
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {request->redirect("/update");});
     
     server.on("/update", HTTP_GET, [](AsyncWebServerRequest *request){handleUpdate(request);});
-    
+    server.on("/control", HTTP_GET, [](AsyncWebServerRequest *request){handleWebInterface(request);});
     server.on("/doUpdate", HTTP_POST,
     [](AsyncWebServerRequest *request) {},
     [](AsyncWebServerRequest *request, const String& filename, size_t index, uint8_t *data,
