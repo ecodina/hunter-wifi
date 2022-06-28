@@ -2,6 +2,7 @@
 #define WEB_INTERFACE_H
 
 #include <Arduino.h>
+#include <ESPAsyncWebServer.h>
 
 struct WebInterface
 {
@@ -10,5 +11,7 @@ struct WebInterface
         String body;
         String footer;
 };
+
+void handleWebInterface(AsyncWebServerRequest *request);
 
 #endif

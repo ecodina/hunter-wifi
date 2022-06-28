@@ -1,7 +1,6 @@
 #include <Updater.h>
 
 #include <ota.h>
-#include <web_interface.h>
 #define U_PART U_FS
 
 size_t content_len;
@@ -9,13 +8,6 @@ size_t content_len;
 void handleUpdate(AsyncWebServerRequest *request)
 {
   String html = "<form method='POST' action='/doUpdate' enctype='multipart/form-data'><input type='file' name='update'><input type='submit' value='Update'></form>";
-  request->send(200, "text/html", html);
-}
-
-// currently at /control
-void handleWebInterface(AsyncWebServerRequest *request)
-{
-  String html = "<p>Nifty Web Interface will be finished Tomorrow</p>";
   request->send(200, "text/html", html);
 }
 

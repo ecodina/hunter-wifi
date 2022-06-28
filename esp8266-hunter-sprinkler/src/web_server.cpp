@@ -10,6 +10,7 @@
 #include <global_config.h>
 #include <web_server.h>
 #include <web_server_api.h>
+#include <web_interface.h>
 #include <ota.h>
 
 /**
@@ -28,6 +29,7 @@ void setup_WebServer()
     Serial.println("mDNS responder started");
     setup_APIRoutes();
     server.begin();
+    MDNS.setHostname(HOSTNAME);
     MDNS.addService("http", "tcp", 80);
 }
 
