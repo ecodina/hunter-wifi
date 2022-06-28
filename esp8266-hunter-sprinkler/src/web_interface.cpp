@@ -22,9 +22,7 @@ WebInterface interface =
     </form>\
   </body>",
   ""
-};//action=\"api/start/zone/\"
-//onsubmit=\"submitform()\"
-//onclick=\"submitform()\"
+};
 
 // currently at /control
 void handleWebInterface(AsyncWebServerRequest *request)
