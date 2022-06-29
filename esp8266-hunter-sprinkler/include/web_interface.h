@@ -12,6 +12,8 @@ struct WebInterface
         String footer;
 };
 
-void handleWebInterface(AsyncWebServerRequest *request);
+void handleHomePage(AsyncWebServerRequest *request);
+void handleRunZone(AsyncWebServerRequest *request);
+void handleRunProgram(AsyncWebServerRequest *request);
 
 #endif

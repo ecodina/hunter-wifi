@@ -46,11 +46,15 @@ void setup_APIRoutes()
     server.on("/api", HTTP_GET, [](AsyncWebServerRequest *request)
               { request->send_P(403, "text/plain", "This is the API root"); });
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->redirect("/update"); });
+              { request->redirect("/home"); });
+    server.on("/home", HTTP_GET, [](AsyncWebServerRequest *request)
+              { handleHomePage(request); });
     server.on("/update", HTTP_GET, [](AsyncWebServerRequest *request)
               { handleUpdate(request); });
-    server.on("/control", HTTP_GET, [](AsyncWebServerRequest *request)
-              { handleWebInterface(request); });
+    server.on("/zone", HTTP_GET, [](AsyncWebServerRequest *request)
+              { handleRunZone(request); });
+    server.on("/program", HTTP_GET, [](AsyncWebServerRequest *request)
+              { handleRunProgram(request); });
     server.on(
         "/doUpdate", HTTP_POST,
         [](AsyncWebServerRequest *request) {},
