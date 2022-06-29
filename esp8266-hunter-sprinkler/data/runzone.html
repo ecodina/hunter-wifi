@@ -2,11 +2,24 @@
     <script
         type="text/javascript">function submitzoneform() { document.getElementById("zoneControl").action = "api/start/zone/" + document.getElementById("zone").value + "?time=" + document.getElementById("time").value; return true; }</script>
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css"
-        integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 </head>
 <body>
+    <div class="pure-menu pure-menu-horizontal" style="height:50px">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a href="/update" class="pure-menu-link">Update</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/program" class="pure-menu-link">Run Program</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/zone" class="pure-menu-link">Run Single Zone</a>
+            </li>
+        </ul>
+    </div>
     <form method="get" id="zoneControl" class='pure-form-stacked'>
         <fieldset>
             <legend>Run Single Zone</legend><input type="text" id="zone" onchange="submitzoneform()" /

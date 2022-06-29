@@ -3,10 +3,23 @@
         type="text/javascript">  function submitprogramform(selected) { document.getElementById("programControl").action = "api/start/program/" + selected; return true; }</script>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css"
-        integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+        crossorigin="anonymous">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 </head>
 <body>
+    <div class="pure-menu pure-menu-horizontal" style="height:50px">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a href="/update" class="pure-menu-link">Update</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/program" class="pure-menu-link">Run Program</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/zone" class="pure-menu-link">Run Single Zone</a>
+            </li>
+        </ul>
+    </div>
     <form method='get' id='programControl' class='pure-form-stacked' action='api/start/program/1'>
         <fieldset>
             <legend>Run Program</legend><select id='program-select'
