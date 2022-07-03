@@ -10,6 +10,7 @@
 #include <global_config.h>
 #include <web_server.h>
 #include <web_server_api.h>
+#include <web_interface.h>
 #include <ota.h>
 
 /**
@@ -28,6 +29,7 @@ void setup_WebServer()
     Serial.println("mDNS responder started");
     setup_APIRoutes();
     server.begin();
+    MDNS.setHostname(HOSTNAME);
     MDNS.addService("http", "tcp", 80);
 }
 
@@ -44,11 +46,15 @@ void setup_APIRoutes()
     server.on("/api", HTTP_GET, [](AsyncWebServerRequest *request)
               { request->send_P(403, "text/plain", "This is the API root"); });
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->redirect("/update"); });
+              { request->redirect("/home"); });
+    server.on("/home", HTTP_GET, [](AsyncWebServerRequest *request)
+              { handleHomePage(request); });
     server.on("/update", HTTP_GET, [](AsyncWebServerRequest *request)
               { handleUpdate(request); });
-    server.on("/control", HTTP_GET, [](AsyncWebServerRequest *request)
-              { handleWebInterface(request); });
+    server.on("/zone", HTTP_GET, [](AsyncWebServerRequest *request)
+              { handleRunZone(request); });
+    server.on("/program", HTTP_GET, [](AsyncWebServerRequest *request)
+              { handleRunProgram(request); });
     server.on(
         "/doUpdate", HTTP_POST,
         [](AsyncWebServerRequest *request) {},
