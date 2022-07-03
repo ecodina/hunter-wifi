@@ -2,7 +2,7 @@
  * This file includes all the functions that are scheduled to run after returning a response to the client.
  * The client asks to do some action with the Hunter Irrigation System and these functions contain the
  * necessary logic to perform it and send the result to a webhook.
- * 
+ *
  * First version: July 2020 - Eloi Codina Torras
  */
 #include <HunterRoam.h>
@@ -18,15 +18,16 @@ HTTPClient http;
 WiFiClient wifi;
 
 /**
- * Send the result of the action performed on the Hunter Irrigation System to a 
+ * Send the result of the action performed on the Hunter Irrigation System to a
  * webhook given by the client when it made the petition.
- * 
+ *
  * @param toSend information that will be sent. Probably JSON formatted
  * @param webhook url where the information will be sent
  */
-void sendResult(String toSend, String webhook) {
+void sendResult(String toSend, String webhook)
+{
     http.begin(wifi, webhook);
-    http.addHeader("Content-Type", "application/json"); 
+    http.addHeader("Content-Type", "application/json");
     http.POST(toSend);
     http.end();
     mqttPublishResult(toSend.c_str());
@@ -34,13 +35,14 @@ void sendResult(String toSend, String webhook) {
 
 /**
  * Start a zone and send the result of the action to the webhook given by the client.
- * 
+ *
  * @param num zone number
  * @param time irrigation minutes
  * @param webhook url where the result will be sent
  */
-void startZone(byte num, byte time, String webhook) {
-    
+void startZone(byte num, byte time, String webhook)
+{
+
     byte result = smartPort.startZone(num, time);
 
     String toSend = "{";
@@ -50,17 +52,18 @@ void startZone(byte num, byte time, String webhook) {
     toSend = toSend + "\"result\": \"" + smartPort.errorHint(result) + "\",";
     toSend = toSend + "\"result_num\": " + (String)result;
     toSend = toSend + "}";
-    
-    sendResult(toSend, webhook);    
+
+    sendResult(toSend, webhook);
 }
 
 /**
  * Stop a zone and send the result of the action to the webhook given by the client.
- * 
+ *
  * @param num zone number
  * @param webhook url where the result will be sent
  */
-void stopZone(byte num, String webhook) {
+void stopZone(byte num, String webhook)
+{
     byte result = smartPort.stopZone(num);
 
     String toSend = "{";
@@ -70,17 +73,18 @@ void stopZone(byte num, String webhook) {
     toSend = toSend + "\"result\": \"" + smartPort.errorHint(result) + "\",";
     toSend = toSend + "\"result_num\": " + (String)result;
     toSend = toSend + "}";
-    
-    sendResult(toSend, webhook);    
+
+    sendResult(toSend, webhook);
 }
 
 /**
  * Start a program and send the result of the action to the webhook given by the client.
- * 
+ *
  * @param num program number
  * @param webhook url where the result will be sent
  */
-void startProgram(byte num, String webhook) {
+void startProgram(byte num, String webhook)
+{
     byte result = smartPort.startProgram(num);
 
     String toSend = "{";
@@ -90,6 +94,6 @@ void startProgram(byte num, String webhook) {
     toSend = toSend + "\"result\": \"" + smartPort.errorHint(result) + "\",";
     toSend = toSend + "\"result_num\": " + (String)result;
     toSend = toSend + "}";
-    
-    sendResult(toSend, webhook);    
+
+    sendResult(toSend, webhook);
 }
