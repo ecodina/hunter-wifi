@@ -1,11 +1,19 @@
 <head>
-    <script
-        type="text/javascript">function submitzoneform() { document.getElementById("zoneControl").action = "api/start/zone/" + document.getElementById("zone").value + "?time=" + document.getElementById("time").value; return true; }</script>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+    <script type="text/javascript">
+        function submitzoneform() {
+            var zoneNumber = document.getElementById("zone").value;
+            var t = document.getElementById("time").value;
+            //document.getElementById("zoneControl").action = "api/start/zone/" + zoneNumber; /*+ "?time=" + document.getElementById("time").value; return true; */
+            fetch('/api/start/zone/' + zoneNumber + '?' + new URLSearchParams({
+                time: t
+            }));
+        }
+    </script>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/base-min.css">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 </head>
+
 <body>
     <div class="pure-menu pure-menu-horizontal" style="height:50px">
         <ul class="pure-menu-list">
@@ -22,9 +30,7 @@
     </div>
     <form method="get" id="zoneControl" class='pure-form-stacked'>
         <fieldset>
-            <legend>Run Single Zone</legend><input type="text" id="zone" onchange="submitzoneform()" /
-                placeholder='Zone'><br /><input type="text" id="time" onchange="submitzoneform()"
-                placeholder='Run Time'><button type="submit" class='pure-button pure-button-primary'>Submit</button>
+            <legend>Run Single Zone</legend><input type="text" id="zone" onchange="submitzoneform()" / placeholder='Zone'><br /><input type="text" id="time" onchange="submitzoneform()" placeholder='Run Time'><button type="submit" class='pure-button pure-button-primary'>Submit</button>
         </fieldset>
     </form>
 </body>
