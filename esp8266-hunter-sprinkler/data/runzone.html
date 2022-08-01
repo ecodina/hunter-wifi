@@ -21,7 +21,7 @@
     <form id="zone-control" class="pure-form-stacked">
         <fieldset>
             <legend id="title">Run Single Zone</legend>
-            <input type="text" name="zone" placeholder="Zone">
+            <input type="text" id="zone" placeholder="Zone">
             <br /><input type="text" name="time" placeholder="Run Time">
             <button type="submit" class="pure-button pure-button-primary">Submit</button>
         </fieldset>
@@ -32,8 +32,8 @@
         $(document).ready(function() {
             $("#zone-control").submit(function(event) {
                 event.preventDefault();
-                console.log("api/start/zone/" + $("#zone-control").serialize());
-                $.get("api/start/zone/", $("#zone-control").serialize(),
+                console.log("api/start/zone/" + $("#zone").val() + $("#zone-control").serialize());
+                $.get("api/start/zone/" + $("#zone").val(), $("#zone-control").serialize(),
                     function(data, textStatus, jqXHR) {
                         console.log(data);
                         $('#result').text(data.status);
