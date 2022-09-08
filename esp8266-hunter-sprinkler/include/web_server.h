@@ -7,5 +7,6 @@ extern AsyncWebServer server;
 
 void setup_WebServer();
 void setup_APIRoutes();
+void handleNotFound(AsyncWebServerRequest *request);
 
 #endif
