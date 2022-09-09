@@ -3,6 +3,7 @@
 
 #include <global_config.h>
 #include <PubSubClient.h>
+#include <ESP8266WiFi.h>
 
 class MQTT
 {
