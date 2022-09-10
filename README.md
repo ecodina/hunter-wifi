@@ -1,5 +1,7 @@
 # Hunter Roam - WiFi
 
+![Build status](https://github.com/ecodina/hunter-wifi/actions/workflows/pr.yml/badge.svg?branch=master)
+
 During 2020's summer I decided it would be interesting to have my Hunter Pro-C watering system connected to the Internet. After some research I found [Scott Shumate 2015's product](https://www.hackster.io/sshumate/hunter-sprinkler-wifi-remote-control-4ea918), but it is no longer on sale. Luckily, [Sebastien](https://github.com/seb821/OpenSprinkler-Firmware-Hunter) published the necessary Arduino code. I have adapted his code to make it easier to control the sprinkler system.
 
 It can control up to 48 zones and 4 programs.
