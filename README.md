@@ -1,6 +1,59 @@
 # Hunter Roam - WiFi
 
-![Build status](https://github.com/ecodina/hunter-wifi/actions/workflows/pr.yml/badge.svg?branch=master)
+![Build status](https://github.com/marek-polak/hunter-wifi/actions/workflows/pr.yml/badge.svg?branch=master)
+
+# INFO
+This is a fork of [@Ecodina](https://ecodina.github.io/hunter-wifi)'s repository with few custom instructions how to get it working for my setup: internal unit XCORE 401 with 3 active sections (of total 4 available).
+
+ Parts used:
+ - Hunter XCORE 401
+ - [Lolin WEMOS D1 mini Pro](https://www.wemos.cc/en/latest/d1/d1_mini_pro.html)
+ - 5V DC Micro-USB power supply
+ - 3-wire jumper cable
+
+## Software installation
+
+Easiest way to install was through [esphome.io](https://web.esphome.io/?dashboard_install) website. Just connect the board using usb cable to the PC, select serial device and upload the binary file to the board. 
+
+After startup, connect to the "WateringSystemAP" and setup up the WIFI & MQTT credentials:
+
+```
+# MQTT server URL
+server: 'mqtt://172.17.0.1'
+
+# MQTT server authentication
+user: mqtt_user
+password: [password]
+```
+
+Save & restart the board and check in the routers device list, if the device has obtained an IP address.
+
+## Hardware installation
+
+Contrary to the info in the [docs](docs/pages/hunterconnection.md), with this version of Hunter watering system you don't need to split power supply and connect it to AC#2 (common ground). According to this [comment](https://github.com/ecodina/hunter-wifi/issues/12#issuecomment-1082636694), there are 2 revisions of the Hunter X-Core internal MCU (running either on -3.3V or -5V).
+
+Mine runs on **-3.3V**, therefore it is enough to connect the **3V3** pin of esp board to the common ground (**AC#2**).
+
+Wiring is displayed on following diagram (obtained from [loullingen.lu](https://www.loullingen.lu/projekte/Hunter/index.php?language=EN), where a lot of other important info about the topic could be found):
+
+ ![Wiring - obtained from loullingen.lu](/docs/images/hunter_esp8266_wiring_loullingen.lu.png "Wiring - obtained from loullingen.lu")
+
+### My actual setup looks like this:
+ - white wire is used to control the REM port, connects to GPIO16 / D0 on the board
+ - black wire connects 3V3 GPIO with common ground (AC#2)
+ - red wire was used to split 5V voltage from micro USB charged, is unused and can be ignored.
+
+ ![XCORE 401 - actual setup](/docs/images/hunter-xcore-401-actual-setup.jpg "XCORE 401 - actual setup")
+
+
+
+
+----  
+
+
+
+
+# Original @Ecodina's intro & readme:
 
 During 2020's summer I decided it would be interesting to have my Hunter Pro-C watering system connected to the Internet. After some research I found [Scott Shumate 2015's product](https://www.hackster.io/sshumate/hunter-sprinkler-wifi-remote-control-4ea918), but it is no longer on sale. Luckily, [Sebastien](https://github.com/seb821/OpenSprinkler-Firmware-Hunter) published the necessary Arduino code. I have adapted his code to make it easier to control the sprinkler system.
 
